@@ -1,10 +1,5 @@
-const printToDom = (stringToPrint, whereToPrint) => {
-    document.getElementById(whereToPrint).innerHTML += stringToPrint;
-};
-
-const multiply = (n1, n2) => {
-    return n1 * n2;
-};
+import {printToDom} from '../helpers/util.js';
+import {multiply, add, divide, subtract} from '../helpers/maths.js';
 
 
 const calculate = (num1, num2, mathType) => {
@@ -14,17 +9,19 @@ const calculate = (num1, num2, mathType) => {
        answer = multiply(num1, num2);
         break;
     case 'divide':
-        answer = num1 / num2
+        answer = divide(num1, num2);
         break;
     case 'add':
-        answer = num1 + num2
+        answer = add(num1, num2);
         break;
     case 'subtract':
-        answer = num1 - num2
+        answer = subtract(num1, num2);
         break;
     default:
         answer = nope
     };
     printToDom(answer, 'result');
 };
-calculate(4,2, 'multiply');
+
+
+export {calculate}
